@@ -1,0 +1,32 @@
+txtExp (클래스 5)
+
+레벨업 후 초과한 경험치를 다음 레벨에 바뀐 계수 적용시켜서 쌓을 것인가?
+아니면 그냥 레벨업하면 경험치를 초기화할 것인가?(easy)
+레벨강등? 그냥 0%에서 멈춘다?
+
+1.방법
+=> 기존 유저 레벨의 경험치를 가져온다(메소드1)
+=> select l.exp from user as u,level as l where u.id = l.id;
+
+=> 첫번째, 오답 > 정답인 경우 기존exp - (오답개수xlevel별 exp계수) -> updated exp (메소드2)
+=> exp가 하락해서 0% 미만이 될 경우 다시 0% 초기화하고 진행할 것인지? or -%?
+=> if(updated exp < 0) -> 다시 0%로 초기화?
+=> if(updated exp == 0) -> 0%에서 스탑?
+
+=> 두번째, 정답 > 오답인 경우 기존exp + (정답개수 x level별 exp계수) -> udated exp (메소드3)
+=> if(updated exp > 100) -> 레벨업(update set), 축하 메세지 출력 -> 초과한 exp를 어떻게 처리?
+=> if(updated exp == 100) -> 레벨업(update set), 축하 메세지 출력 -> exp 0%로 초기화
+
+=> 세번째, 오답 == 정답인 경우 변동없음 (메소드4)
+
+=> 메소드2,3,4는 메소드5에서 if로 비교해가며 리턴하기
+
+
+********
+=> 게임결과화면이 open될 때 미리 exp를 계산해야함
+=> 그래야 updated exp >= 100 인 경우 미리 레벨을 next level로 update set해서 updated level을 lblUser Level에서 쓸 수 있음
+
+2.필요
+=> 기존 유저 레벨
+=> 정답/오답개수
+=> 

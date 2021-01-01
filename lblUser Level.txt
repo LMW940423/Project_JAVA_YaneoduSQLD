@@ -1,0 +1,9 @@
+lblUserLevel (클래스 2)
+
+1. 방법
+=>levelbean?에 저장된 유저 level을 불러와 lblUserLevel에 settext한다
+=>lblUSERLEVEL.settext(level);
+
+2.필요
+=>해당 유저 레벨(LevelBean)
+=>seqno?

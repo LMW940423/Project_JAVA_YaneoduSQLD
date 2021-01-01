@@ -1,0 +1,17 @@
+lblSection (Class 3)
+
+1.방법
+=> select uname from user where uid = ?
+=> ? = 로그인 시 입력받은 ID! ( 로그인 시 ID를 어딘가 share 클래스? or ShareBean에 저장)
+=> 추출한 이름과 levelbean에 있는 level을 활용
+
+=> 상위 몇%인지 알아내는 방법
+=> 총 유저 레벨 중에서 몇번째로 큰 레벨인지를 뽑아내 저장 후 저장값/총 유저수로 계산
+
+=> lblSection.settext(이름 + "님의 레벨은 상위" + format("%.1f",저장값/총 유저수) + "% 입니다");
+
+2. 필요
+=> 로그인 시 받은 id
+=> id를 통해 얻을 수 있는 사용자 이름
+=> level
+=> 몇번째로 큰 레벨인지?

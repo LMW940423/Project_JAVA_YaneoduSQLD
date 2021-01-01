@@ -1,0 +1,26 @@
+
+Level 테이블이 존재해야 Level시스템을 구축할 수 있다?
+
+level table
+(userid from user fk)
+(level int default 1)
+(exp double default 0)
+ 
+
+****Level Badge (Class 1)
+
+1~10 = 동
+11~20 = 은
+21~30 = 금
+31~40 = 다이아
+41~49 = 트로피
+50 = 왕관
+
+1. 방법
+=>Level 테이블에서 회원 테이블의 ID에 맞는 Level을 불러온 후 LevelBean에 저장?
+=>메소드1이 LevelBean을 통해 받은 level을 if문 통해 레벨구간별 1~6까지의 리턴값을 보낸다.
+=>메소드2가 메소드1의 리턴값을 받아 switch문으로 lblBadge.setIcon(new ImageIcon ~ 경로)해서 해당 뱃지로 바꾼다.
+
+2. 필요한 데이터
+=> 유저 id? seqno?
+
